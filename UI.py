@@ -43,7 +43,7 @@ upload = st.file_uploader("Upload your satellite image", type=["jpg", "png", "jp
 #     r"C:\Users\raghu\OneDrive\Documents\Projects\Explore-Beyond\uploaded images"
 # )
 # save_path = Path(save_folder)
-with open(os.path.join("uploaded images", upload.name), "wb") as f:
+with open(os.path.join("uploaded_file", 'test'), "wb") as f:
     f.write(upload.getbuffer())
 
 st.success(f"File {upload.name} is successfully saved!")
@@ -54,7 +54,7 @@ CATEGORIES = ["bright_dune", "crater", "dark_dune", "impact_ejecta", "slope_stre
 
 def findClass(upload):
     image_1 = cv2.imread(upload)
-    image_1 = cv2.resize(upload, (227, 227))
+    image_1 = cv2.resize(image_1, (227, 227))
     np.array(image_1).reshape(-1, 227, 227, 3)
     image_1 = image_1.astype("float32")
     image_1 /= 255
@@ -66,14 +66,9 @@ def findClass(upload):
 if upload is not None:
     image = Image.open(upload)
     # numpydata = asarray(image)
-    # findClass(numpydata)
+    result = findClass('uploaded_file/test')
     fig = plt.figure()
     plt.imshow(image)
     plt.axis("off")
     st.pyplot(fig)
-    # result = predict_class(image)
-
-# image_path = f"uploaded images/{upload.name}.jpg"
-
-
-# findClass(upload)
+    st.write(result)
