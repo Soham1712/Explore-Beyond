@@ -78,6 +78,7 @@ if rad == "Prediction":
         image_1 /= 255
         prediction = model_cnn.predict(np.array([image_1], np.float32))
         i = np.argmax(prediction)
+        global pred_cnn
         pred_cnn = str(prediction[0][i])
         return CATEGORIES[np.argmax(prediction)]
 
@@ -89,6 +90,7 @@ if rad == "Prediction":
         image_1 /= 255
         prediction = model_alexnet.predict(np.array([image_1], np.float32))
         i = np.argmax(prediction)
+        global pred_alexnet
         pred_alexnet = str(prediction[0][i])
         return CATEGORIES[np.argmax(prediction)]
 
@@ -108,7 +110,8 @@ if rad == "Prediction":
 
     mycursor = mydb.cursor()
     sql = "INSERT INTO results VALUES (%s, %s, %s, %s, %s)"
-    val = (name, result_alexnet, result_cnn, "96", "98")
+    val = (name, result_alexnet, result_cnn, pred_cnn, pred_alexnet)
+    st.write(val)
     mycursor.execute(sql, val)
     mydb.commit()
 
