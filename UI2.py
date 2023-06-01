@@ -22,10 +22,6 @@ image_slopeStreak = Image.open(r"./Images/SlopeStreak.jpg")
 st.sidebar.image(image_sidebar, width=300)
 rad = st.sidebar.radio("", ["Prediction", "About"])
 
-# mydb = mysql.connector.connect(host="localhost", user="root", password="root")
-
-# print(mydb)
-
 
 def add_bg_from_url():
     st.markdown(
