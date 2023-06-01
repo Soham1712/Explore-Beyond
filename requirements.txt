@@ -1,4 +1,4 @@
 matplotlib
-PIL
+Pillow
 tensorflow
-cv2
+opencv-python
