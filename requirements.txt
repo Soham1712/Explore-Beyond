@@ -1,0 +1,4 @@
+matplotlib
+PIL
+tensorflow
+cv2

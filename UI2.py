@@ -7,7 +7,6 @@ import numpy as np
 import os
 from pathlib import Path
 from numpy import asarray
-from PIL import Image
 # import mysql.connector
 
 # st.header("EXPLORE BEYOND :white[colors]")
